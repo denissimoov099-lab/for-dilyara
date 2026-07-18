@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Для Диляры ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Poppins,sans-serif;
+background:linear-gradient(180deg,#090b2d,#1b1459,#3f1f6f);
+overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+color:#fff;
+}
+
+.card{
+width:90%;
+max-width:420px;
+padding:30px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border-radius:25px;
+text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,.4);
+z-index:2;
+animation:fade .8s;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+h1{
+font-family:'Marck Script',cursive;
+font-size:56px;
+margin-bottom:15px;
+}
+
+p{
+margin:14px 0;
+line-height:1.8;
+font-size:17px;
+}
+
+.date{
+font-size:20px;
+font-weight:bold;
+}
+
+button{
+padding:14px 28px;
+border:none;
+border-radius:40px;
+font-size:18px;
+cursor:pointer;
+margin:12px;
+transition:.25s;
+}
+
+#yes{
+background:#ff4f93;
+color:white;
+}
+
+#yes:hover{
+transform:scale(1.05);
+}
+
+#no{
+background:white;
+color:#ff4f93;
+position:absolute;
+}
+
+#result{
+display:none;
+font-size:28px;
+margin-top:20px;
+font-weight:bold;
+}
+
+.star{
+position:absolute;
+background:white;
+border-radius:50%;
+animation:blink 2s infinite;
+}
+
+@keyframes blink{
+50%{
+opacity:.2;
+}
+}
+
+.heart{
+position:absolute;
+font-size:18px;
+animation:fall linear infinite;
+opacity:.8;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-50px);
+}
+100%{
+transform:translateY(110vh);
+}
+}
+</style>
+</head>
+
+<body>
+
+<div id="sky"></div>
+
+<div class="card">
+
+<h1>Жаным ❤️</h1>
+
+<p>
+Диляра...
+</p>
+
+<p>
+Я знаю, что обидел тебя.
+Мне правда жаль.
+Я не хочу искать оправдания.
+Я просто хочу показать,
+что ты для меня очень важна.
+</p>
+
+<p>
+Если ты позволишь...
+</p>
+
+<p style="font-size:24px;font-weight:bold;">
+Пойдём со мной в кофейню? ☕
+</p>
+
+<p class="date">
+📅 19 июля (воскресенье)<br>
+🕖 19:00
+</p>
+
+<button id="yes">Да ❤️</button>
+<button id="no">Нет 🙈</button>
+
+<div id="result">
+Спасибо, Жаным ❤️<br>
+Буду ждать тебя ☕
+</div>
+
+</div>
+
+<script>
+const no=document.getElementById("no");
+const yes=document.getElementById("yes");
+const result=document.getElementById("result");
+
+function moveButton(){
+const w=window.innerWidth-120;
+const h=window.innerHeight-70;
+
+no.style.left=Math.random()*w+"px";
+no.style.top=Math.random()*h+"px";
+}
+
+no.addEventListener("mouseover",moveButton);
+no.addEventListener("click",moveButton);
+
+yes.onclick=()=>{
+
+document.getElementById("yes").style.display="none";
+document.getElementById("no").style.display="none";
+
+result.style.display="block";
+
+for(let i=0;i<120;i++){
+
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.top="-50px";
+heart.style.fontSize=(15+Math.random()*30)+"px";
+heart.style.animationDuration=(4+Math.random()*4)+"s";
+heart.style.animationDelay=Math.random()*2+"s";
+
+document.body.appendChild(heart);
+
+}
+
+}
+
+for(let i=0;i<90;i++){
+
+let star=document.createElement("div");
+star.className="star";
+
+let s=Math.random()*3+1;
+
+star.style.width=s+"px";
+star.style.height=s+"px";
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+star.style.animationDelay=Math.random()*2+"s";
+
+document.body.appendChild(star);
+
+}
+
+</script>
+
+</body>
+</html>
+  
